@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
-import { fetchItemPost } from "../api/itemPostApi.js";
+import ProductDetailLayout from '../components/Layout/ProductDetailLayout';
 
-function ItemPostDetail({ itemPostId }) {
-  const [itemPost, setItemPost] = useState(null);
-
-  useEffect(() => {
-    fetchItemPost(itemPostId).then(setItemPost);
-  }, [itemPostId]);
-
-  if (!itemPost) return <div>Loading...</div>;
-
+export default function ItemPostDetailPage() {
   return (
-    <div>
-      <h1>{itemPost.article_id}</h1>
-      <p>Price: {itemPost.price} {itemPost.currency}</p>
-      {/* more fields to display */}
-    </div>
+    <ProductDetailLayout>
+      {/* Left column */}
+      <div>
+        <h1>Samsung Galaxy A55</h1>
+        <p>Detalles del producto...</p>
+      </div>
+
+      {/* Right column */}
+      <div>
+        <button>Comprar</button>
+        <button>Agregar al carrito</button>
+      </div>
+    </ProductDetailLayout>
   );
 }
-
-export default ItemPostDetail;

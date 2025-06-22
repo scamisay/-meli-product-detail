@@ -1,0 +1,113 @@
+:root {
+  --meli-blue: #3483fa;
+  --meli-text: #333333;
+  --meli-muted: #666666;
+  --meli-muted-light: #999999;
+  --meli-background: #EDEDED;
+  --meli-white: #FFFFFF;
+  --font-main: 'Inter', sans-serif;
+}
+
+.page {
+  background-color: var(--meli-background);
+  padding: 24px;
+  font-family: var(--font-main);
+  min-height: 100vh;
+}
+
+/* Breadcrumb navigation (category path) */
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 16px;
+  color: var(--meli-blue);
+}
+
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumb li::after {
+  content: '>';
+  margin: 0 6px;
+  color: var(--meli-muted-light);
+}
+
+.breadcrumb li:last-child::after {
+  content: '';
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--meli-blue);
+  transition: color 0.2s ease-in-out;
+}
+
+.breadcrumb a:hover {
+  color: var(--meli-blue);
+}
+
+.breadcrumb li:last-child a {
+  font-weight: 600;
+}
+
+/* Main container that wraps both columns */
+.mainContainer {
+  background-color: var(--meli-white);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  gap: 32px;
+}
+
+/* Left column: product images and description */
+.leftColumn {
+  flex: 2.5;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right column: buying actions and shipping info */
+.rightColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Responsive rules ---------- */
+
+/* Tablet: reduce padding and spacing */
+@media (max-width: 1024px) {
+  .mainContainer {
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+/* Mobile: stack columns and shrink breadcrumb */
+@media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .breadcrumb {
+    font-size: 12px;
+    margin-bottom: 8px;
+    padding: 0 8px;
+  }
+
+  .leftColumn,
+  .rightColumn {
+    flex: 1;
+    width: 100%;
+  }
+
+  .rightColumn {
+    margin-top: 24px;
+  }
+}
