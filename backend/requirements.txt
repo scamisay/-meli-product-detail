@@ -3,3 +3,4 @@ uvicorn
 pydantic
 pytest
 httpx
+pytest-cov>=4.1.0

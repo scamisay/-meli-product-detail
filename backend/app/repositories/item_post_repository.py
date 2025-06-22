@@ -1,8 +1,7 @@
-import os
-import json
 from app.core.constants import ITEM_POSTS_PATH
+from app.utils.file_repository_utils import build_flat_data_path, load_json_from_path
+
 
 def load_item_post_by_id(item_post_id: str) -> dict:
-    file_path = os.path.join(ITEM_POSTS_PATH, f"{item_post_id}.json")
-    with open(file_path, "r", encoding="utf-8") as file:
-        return json.load(file)
+    path = build_flat_data_path(ITEM_POSTS_PATH, item_post_id)
+    return load_json_from_path(path)
