@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from app.services.item_post_service import ItemPostService
 
-router = APIRouter(prefix="/item-posts", tags=["item_posts"])
+router = APIRouter()
 service = ItemPostService()
 
 @router.get("/{item_post_id}")
