@@ -1,0 +1,63 @@
+{
+  "id": "samsung-galaxy-a55-verde_lima-128gb",
+  "title": "Samsung Galaxy A55 128GB Awesome Lemon 8GB RAM",
+  "brand": "Samsung",
+  "total_sales": 500,
+  "rating": 4.8,
+  "review_amount": 2734,
+  "description": "Mirá tus series y películas favoritas con la mejor definición a través de su pantalla Super AMOLED de 6.6''. Disfrutá de colores brillantes y detalles precisos en todos tus contenidos. Con su potente procesador y memoria RAM de 8 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras. Con su memoria interna de 128 GB podrás almacenar archivos y aplicaciones de gran tamaño sin necesidad de subirlos a la nube y aprovechar tus momentos sin conexión para darles el máximo uso.",
+  "short_info": [
+    "Pantalla Super AMOLED de 6.6''",
+    "Memoria RAM de 8 GB",
+    "Cámara principal de 50 Mpx",
+    "Cámara frontal de 32 Mpx",
+    "Procesador OCTA-CORE de 2.75 GHz",
+    "Batería de 5 Ah",
+    "Almacenamiento interno de 128 GB",
+    "Dual SIM con soporte eSIM",
+    "Compatible con 5G, WiFi, Bluetooth, NFC y GPS"
+  ],
+  "warranty_months": 12,
+  "category_path": ["Electrónica", "Celulares", "Smartphones"],
+  "attributes": {
+    "pantalla": {
+      "tamaño": "6.6''",
+      "resolución": "1080 px x 2340 px",
+      "tipo": "Super AMOLED"
+    },
+    "memoria": {
+      "ram": "8 GB",
+      "interna": "128 GB",
+      "expansible": true
+    },
+    "procesador": {
+      "modelo": "OCTA-CORE",
+      "velocidad": "2.75 GHz"
+    },
+    "cámara": {
+      "principal": "50 Mpx",
+      "frontal": "32 Mpx",
+      "otras": ["12mp", "50mp", "5mp"]
+    },
+    "conectividad": {
+      "5g": true,
+      "wifi": true,
+      "bluetooth": true,
+      "gps": true,
+      "nfc": true
+    },
+    "batería": {
+      "capacidad": "5 Ah"
+    },
+    "dimensiones": {
+      "peso": "213 g",
+      "tamaño": "16.11 cm x 7.74 cm x 8.2 mm"
+    },
+    "sim": {
+      "dual_sim": true,
+      "eSIM": true,
+      "tamaño": "Nano-SIM"
+    },
+    "color": "Verde lima"
+  }
+}

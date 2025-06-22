@@ -1,0 +1,22 @@
+{
+  "id": "megatone__samsung-galaxy-a55-verde_lima-128gb__color--verde_lima__memoria--128gb",
+  "article_id": "samsung-galaxy-a55-verde_lima-128gb",
+  "seller_id": "megatone",
+  "price": 939999.0,
+  "currency": "ARS",
+  "stock": 50,
+  "condition": "new",
+  "payment_methods": [
+    "credit_card:visa",
+    "credit_card:mastercard",
+    "account_money:mercado_pago_balance"
+  ],
+  "delivery_options": [
+    "home_delivery:standard",
+    "pickup_point:mail_branch"
+  ],
+  "variants": [
+    "getbox__samsung-galaxy-a55-azul_claro-128gb__color--azul_claro__memoria--128gb",
+    "alclick__samsung-galaxy-a55-azul_oscuro-256gb__color--azul_oscuro__memoria--256gb"
+  ]
+}

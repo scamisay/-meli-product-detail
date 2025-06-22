@@ -1,0 +1,16 @@
+{
+  "id": "getbox",
+  "name": "GETBOX",
+  "is_official_store": false,
+  "followers": 0,
+  "products_count": 500,
+  "reputation_level": "Platinum",
+  "reputation_description": "¡Uno de los mejores del sitio!",
+  "metrics": {
+    "sales": 10000,
+    "good_attention": true,
+    "on_time_dispatch": true
+  },
+  "tax_invoice": "Factura A",
+  "item_posts": []
+}

@@ -1,0 +1,16 @@
+{
+  "id": "megatone",
+  "name": "Megatone",
+  "is_official_store": true,
+  "followers": 1000,
+  "products_count": 1000,
+  "reputation_level": "MercadoLíder Platinum",
+  "reputation_description": "¡Uno de los mejores del sitio!",
+  "metrics": {
+    "sales": 50000,
+    "good_attention": true,
+    "on_time_dispatch": true
+  },
+  "tax_invoice": null,
+  "item_posts": []
+}
