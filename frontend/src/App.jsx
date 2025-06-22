@@ -5,7 +5,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/item-posts/:id" element={<ItemPostDetailPage />} />
+        <Route path="/item-posts/:itemPostId" element={<ItemPostDetailPage />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,7 @@
+// src/components/Layout/ProductDetailLayout.jsx
 import styles from './ProductDetailLayout.module.css';
 
-export default function ProductDetailLayout({ leftContent, rightContent }) {
+export default function ProductDetailLayout({ children }) {
   return (
     <div className={styles.page}>
       <nav className={styles.breadcrumb}>
@@ -12,8 +13,13 @@ export default function ProductDetailLayout({ leftContent, rightContent }) {
       </nav>
 
       <main className={styles.mainContainer}>
-        <section className={styles.leftColumn}>{leftContent}</section>
-        <aside className={styles.rightColumn}>{rightContent}</aside>
+        <section className={styles.leftColumn}>
+          {children[0]} {/* ArticlePhotoGallery */}
+          {children[1]} {/* ItemPostSummary */}
+        </section>
+        <aside className={styles.rightColumn}>
+          {children[2]} {/* Botones de acción u otros componentes */}
+        </aside>
       </main>
     </div>
   );

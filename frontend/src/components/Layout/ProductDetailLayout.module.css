@@ -55,40 +55,59 @@
   font-weight: 600;
 }
 
-/* Main container that wraps both columns */
+/* Main container that wraps all columns */
 .mainContainer {
   background-color: var(--meli-white);
   border-radius: 8px;
   padding: 24px;
   display: flex;
   gap: 32px;
+  align-items: flex-start;
 }
 
-/* Left column: product images and description */
+/* Left column: gallery + summary side by side */
 .leftColumn {
-  flex: 2.5;
+  flex: 2.2;
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* antes column */
+  gap: 32px;
 }
 
-/* Right column: buying actions and shipping info */
+/* Optional: make gallery and summary split the space */
+.leftColumn > *:first-child {
+  flex: 1.2; /* gallery */
+}
+.leftColumn > *:last-child {
+  flex: 1;   /* summary */
+}
+
+/* Right column: buying options */
 .rightColumn {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  position: relative;
+  top: 8px;
 }
 
-/* ---------- Responsive rules ---------- */
-
-/* Tablet: reduce padding and spacing */
+/* Responsive: tablets */
 @media (max-width: 1024px) {
   .mainContainer {
     gap: 16px;
     padding: 16px;
   }
+
+  .leftColumn {
+    flex-direction: column;
+  }
+
+  .leftColumn > * {
+    flex: unset;
+  }
 }
 
-/* Mobile: stack columns and shrink breadcrumb */
+/* Responsive: mobile layout */
 @media (max-width: 768px) {
   .mainContainer {
     flex-direction: column;
@@ -103,8 +122,12 @@
 
   .leftColumn,
   .rightColumn {
-    flex: 1;
+    flex: unset;
     width: 100%;
+  }
+
+  .leftColumn {
+    flex-direction: column;
   }
 
   .rightColumn {
