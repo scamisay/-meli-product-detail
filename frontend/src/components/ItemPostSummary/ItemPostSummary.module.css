@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brandLink {
+  font-size: 14px;
+  color: var(--meli-blue);
+  text-decoration: none;
+}
+
+.brandLink:hover {
+  text-decoration: underline;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.condition {
+  font-size: 14px;
+  color: var(--meli-muted);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--meli-text);
+  margin: 0;
+}
+
+.rating {
+  font-size: 14px;
+  color: var(--meli-blue);
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.originalPrice {
+  font-size: 14px;
+  color: var(--meli-muted);
+  text-decoration: line-through;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--meli-text);
+}
+
+.installments {
+  font-size: 14px;
+  color: #00a650;
+}
+
+.variantsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--meli-text);
+}
+
+.featuresBlock {
+  margin-top: 12px;
+}
+
+.featuresTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--meli-text);
+}
+
+.featureList {
+  padding-left: 16px;
+  margin-top: 4px;
+  color: var(--meli-text);
+  font-size: 14px;
+}
