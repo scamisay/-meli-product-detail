@@ -1,33 +1,52 @@
 import styles from "./ItemPostSummary.module.css";
 
-export default function ItemPostSummary({ item }) {
-  if (!item) {
-    return <p className={styles.loading}>Cargando información del producto...</p>;
+export default function ItemPostSummary({ itemPost, article }) {
+  if (!itemPost || !article || article.id !== itemPost.article_id) {
+    return (
+      <p className={styles.loading}>
+        Cargando información del producto...
+      </p>
+    );
   }
 
   const {
-    title,
     condition,
     price,
     original_price,
-    currency,
-    article,
-    variants,
-  } = item;
+    currency
+  } = itemPost;
+
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+    const totalStars = 5;
+
+    return (
+      <>
+        {[...Array(fullStars)].map((_, i) => (
+          <span key={`star-${i}`} className={styles.star}>★</span>
+        ))}
+        {halfStar && <span className={styles.star}>☆</span>}
+        {[...Array(totalStars - fullStars - (halfStar ? 1 : 0))].map((_, i) => (
+          <span key={`empty-${i}`} className={styles.star}>☆</span>
+        ))}
+      </>
+    );
+  };
 
   return (
     <div className={styles.container}>
       <a href="#" className={styles.brandLink}>
-        Ver más productos marca {article?.brand}
+        Ver más productos marca {article.brand}
       </a>
 
       <div className={styles.titleBlock}>
         <span className={styles.condition}>
-          {condition === "new" ? "Nuevo" : "Usado"} | +{article?.total_sales} vendidos
+          {condition === "new" ? "Nuevo" : "Usado"} | +{article.total_sales} vendidos
         </span>
-        <h1 className={styles.title}>{title}</h1>
+        <h1 className={styles.title}>{article.title}</h1>
         <span className={styles.rating}>
-          ★ {article?.rating} ({article?.review_amount})
+          {article.rating?.toFixed(1)} {renderStars(article.rating)} ({article.review_amount})
         </span>
       </div>
 
@@ -45,23 +64,16 @@ export default function ItemPostSummary({ item }) {
         </span>
       </div>
 
-      <div className={styles.variantsBlock}>
-        <p className={styles.label}>
-          Color: <strong>{variants?.color}</strong>
-        </p>
-        <p className={styles.label}>
-          Memoria interna: <strong>{variants?.storage}</strong>
-        </p>
-      </div>
-
-      <div className={styles.featuresBlock}>
-        <p className={styles.featuresTitle}>Lo que tenés que saber de este producto</p>
-        <ul className={styles.featureList}>
-          <li>Memoria RAM: {variants?.ram} GB</li>
-          <li>Dispositivo liberado para que elijas la compañía telefónica que prefieras</li>
-          <li>Compatible con redes 5G</li>
-        </ul>
-      </div>
+      {article.short_info?.length > 0 && (
+        <div className={styles.featuresBlock}>
+          <p className={styles.featuresTitle}>Lo que tenés que saber de este producto</p>
+          <ul className={styles.featureList}>
+            {article.short_info.map((info, index) => (
+              <li key={index}>{info}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

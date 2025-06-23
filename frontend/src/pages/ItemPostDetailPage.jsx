@@ -44,7 +44,7 @@ export default function ItemPostDetailPage() {
   return (
     <ProductDetailLayout>
       <ArticlePhotoGallery article={article} />
-      <ItemPostSummary item={itemPost} />
+      <ItemPostSummary itemPost={itemPost} article={article}/>
       <RelatedProductList currentItemId={itemPost.id} />
       <ArticleDescription article={article} />
       <PurchaseOptions itemPost={itemPost} seller={seller} />
