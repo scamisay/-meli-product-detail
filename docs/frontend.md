@@ -6,10 +6,10 @@ This document describes the frontend implementation of the product detail page, 
 
 ## 🛠️ Tech Stack
 
-* ⚛️ React.js
-* 🌐 React Router
-* ⚡ Vite
-* 🎨 CSS Modules
+* ⚛️ **React.js**: A JavaScript library for building user interfaces using reusable components.
+* 🌐 **React Router**: Enables dynamic routing in React applications, allowing for page navigation based on URL changes.
+* ⚡ **Vite**: A fast build tool and development server optimized for modern frontend workflows.
+* 🎨 **CSS Modules**: A styling approach that scopes CSS by default, preventing naming collisions and improving maintainability.
 
 ## 🧱 Structure
 
@@ -55,7 +55,7 @@ sequenceDiagram
   participant API as Backend API
   participant Summary as ItemPostSummary
   participant Gallery as ArticlePhotoGallery
-  participant Box as ItemPostPurchaseBox
+  participant PurchaseBox as ItemPostPurchaseBox
   participant Payment as AvailablePaymentMethods
 
   Page->>API: GET /item-posts/{id}
@@ -64,7 +64,7 @@ sequenceDiagram
   API-->>Page: JSON responses
   Page->>Summary: pass props
   Page->>Gallery: pass props
-  Page->>Box: pass props
+  Page->>PurchaseBox: pass props
   Page->>Payment: pass payment_methods
 ```
 
