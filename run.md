@@ -1,62 +1,75 @@
-### 📦 `run.md` – Project Setup Instructions
+# 🛠️ Run Instructions for Meli Product Detail App
 
-This guide will help you run the **meli-product-detail** project locally using Docker Compose.
+This project contains both a **backend** (FastAPI) and a **frontend** (Vite + React). The app is fully containerized using Docker Compose and uses mock JSON files as a data source.
 
 ---
 
-### 🛠️ Prerequisites
+## ✅ Requirements
 
 * [Docker](https://www.docker.com/) installed
-* [Docker Compose](https://docs.docker.com/compose/install/) (comes bundled with Docker Desktop)
+* [Docker Compose](https://docs.docker.com/compose/) installed
 
 ---
 
-### 🚀 Running the Project
+## 🚀 Run the App
 
-1. Clone this repository:
+From the root of the project, run:
 
-   ```bash
-   git clone https://github.com/your-repo/meli-product-detail.git
-   cd meli-product-detail
-   ```
-
-2. Run the services:
-
-   ```bash
-   docker compose up --build
-   ```
-
-3. Access the applications:
-
-   * **Frontend**: [http://localhost:5173](http://localhost:5173)
-   * **Backend (API)**: [http://localhost:8000](http://localhost:8000)
-
----
-
-### 💃 Project Structure
-
-```
-.
-├── backend/
-│   ├── app/                # FastAPI backend
-│   └── data/               # JSON data (mounted as volume)
-├── frontend/               # React frontend (Vite)
-├── docker-compose.yml      # Service orchestration
-├── run.md                  # This guide
+```bash
+docker compose up --build
 ```
 
----
+This will:
 
-### 🧹 Stopping the Services
+* Build and start the **backend** (on port `8000`)
+* Build and start the **frontend** (on port `5173`)
 
-To stop the project, run:
+If you need to stop the app:
 
 ```bash
 docker compose down
 ```
 
-To rebuild everything from scratch:
+To run in detached mode:
 
 ```bash
-docker compose up --build --force-recreate
+docker compose up --build -d
 ```
+
+---
+
+## 🌐 Open the App in Browser
+
+Visit:
+
+```text
+http://localhost:5173/item-posts/alclick__samsung-galaxy-a55-azul_oscuro-256gb__color--azul_oscuro__memoria--256gb
+```
+
+This will load a product detail page using mocked data.
+
+---
+
+## 📦 Folder Structure
+
+```text
+meli-product-detail/
+├── backend/           # FastAPI backend
+│   └── data/          # Static JSON files (articles, sellers, item_posts)
+├── frontend/          # React frontend using Vite
+├── docker-compose.yml # Multi-service Docker config
+├── Dockerfile         # Node-based Dockerfile for frontend
+└── run.md             # This file
+```
+
+---
+
+## ✨ Notes
+
+* Backend reads data from `backend/data/`
+* Frontend is served by Vite (development server)
+* This setup is meant for **development and testing** purposes
+
+---
+
+Happy coding! 🧉
