@@ -1,25 +1,7 @@
-import { useEffect, useState } from "react";
+// src/components/ArticleDescription/ArticleDescription.jsx
 import styles from "./ArticleDescription.module.css";
-import { fetchArticle } from "../../api/articleApi";
 
-export default function ArticleDescription({ articleId }) {
-  const [article, setArticle] = useState(null);
-
-  useEffect(() => {
-    async function loadArticle() {
-      try {
-        const fetchedArticle = await fetchArticle(articleId);
-        setArticle(fetchedArticle);
-      } catch (error) {
-        console.error("Error fetching article:", error);
-      }
-    }
-
-    if (articleId) {
-      loadArticle();
-    }
-  }, [articleId]);
-
+export default function ArticleDescription({ article }) {
   if (!article) return null;
 
   const { description, attributes } = article;

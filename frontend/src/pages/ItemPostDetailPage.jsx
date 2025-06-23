@@ -9,11 +9,13 @@ import RelatedProductList from "../components/RelatedProduct/RelatedProductList"
 import ArticleDescription from "../components/ArticleDescription/ArticleDescription";
 import { fetchItemPost } from "../api/itemPostApi";
 import { fetchSeller } from "../api/sellerApi";
+import { fetchArticle } from "../api/articleApi";
 
 export default function ItemPostDetailPage() {
   const { itemPostId } = useParams();
   const [itemPost, setItemPost] = useState(null);
   const [seller, setSeller] = useState(null);
+  const [article, setArticle] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,6 +26,9 @@ export default function ItemPostDetailPage() {
 
         const sellerData = await fetchSeller(post.seller_id);
         setSeller(sellerData);
+
+        const articleData = await fetchArticle(post.article_id);
+        setArticle(articleData);
       } catch (err) {
         console.error("Error fetching data:", err);
         setError("No se pudo cargar el producto.");
@@ -34,14 +39,14 @@ export default function ItemPostDetailPage() {
   }, [itemPostId]);
 
   if (error) return <p>{error}</p>;
-  if (!itemPost || !seller) return <p>Cargando información del producto...</p>;
+  if (!itemPost || !seller || !article) return <p>Cargando información del producto...</p>;
 
   return (
     <ProductDetailLayout>
-      <ArticlePhotoGallery articleId={itemPost.article_id} />
+      <ArticlePhotoGallery article={article} />
       <ItemPostSummary item={itemPost} />
       <RelatedProductList currentItemId={itemPost.id} />
-      <ArticleDescription articleId={itemPost.article_id} />
+      <ArticleDescription article={article} />
       <PurchaseOptions itemPost={itemPost} seller={seller} />
     </ProductDetailLayout>
   );

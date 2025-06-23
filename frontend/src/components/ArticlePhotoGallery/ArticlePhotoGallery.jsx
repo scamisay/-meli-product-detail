@@ -1,4 +1,4 @@
-// frontend/src/components/ArticlePhotoGallery/ArticlePhotoGallery.jsx
+// src/components/ArticlePhotoGallery/ArticlePhotoGallery.jsx
 import React, { useEffect, useState } from "react";
 import styles from "./ArticlePhotoGallery.module.css";
 import {
@@ -9,9 +9,10 @@ import {
 /**
  * Displays a vertical photo gallery for the given article.
  * Shows one large selected image and smaller thumbnails.
- * @param {string} articleId - The unique identifier of the article.
+ * @param {object} article - The full article object.
  */
-export default function ArticlePhotoGallery({ articleId }) {
+export default function ArticlePhotoGallery({ article }) {
+  const articleId = article?.id;
   const [imageNames, setImageNames] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
