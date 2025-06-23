@@ -6,3 +6,9 @@ export async function fetchSeller(id) {
   if (!res.ok) throw new Error("Failed to fetch seller");
   return res.json();
 }
+
+export async function fetchItemPostsPaginated(limit = 2, offset = 0) {
+  const res = await fetch(`${API_BASE_URL}/item-posts/?limit=${limit}&offset=${offset}`);
+  if (!res.ok) throw new Error("Failed to fetch item posts");
+  return res.json();
+}

@@ -65,11 +65,10 @@
   align-items: flex-start;
 }
 
-/* Left column: gallery + summary side by side */
 .leftColumn {
   flex: 2.2;
   display: flex;
-  flex-direction: row; /* antes column */
+  flex-direction: column; /* corregido: era row */
   gap: 32px;
 }
 
@@ -132,5 +131,22 @@
 
   .rightColumn {
     margin-top: 24px;
+  }
+}
+
+.topRow {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+}
+
+.relatedRow {
+  margin-top: 32px;
+}
+
+@media (max-width: 768px) {
+  .topRow {
+    flex-direction: column;
   }
 }

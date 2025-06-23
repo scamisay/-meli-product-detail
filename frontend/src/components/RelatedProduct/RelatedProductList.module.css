@@ -1,0 +1,15 @@
+.container {
+  margin-top: 32px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.productList {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}

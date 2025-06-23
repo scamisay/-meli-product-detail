@@ -24,3 +24,10 @@ export async function getArticleImageNames(articleId) {
 export function getArticleImageUrl(articleId, imageName) {
   return `${API_BASE_URL}/articles/${articleId}/images/${encodeURIComponent(imageName)}`;
 }
+
+
+export async function fetchArticle(articleId) {
+  const res = await fetch(`${API_BASE_URL}/articles/${articleId}`);
+  if (!res.ok) throw new Error("Failed to fetch article");
+  return res.json();
+}

@@ -14,11 +14,17 @@ export default function ProductDetailLayout({ children }) {
 
       <main className={styles.mainContainer}>
         <section className={styles.leftColumn}>
+        <div className={styles.topRow}>
           {children[0]} {/* ArticlePhotoGallery */}
           {children[1]} {/* ItemPostSummary */}
+        </div>
+        <div className={styles.relatedRow}>
+          {children[2]} {/* RelatedProductList */}
+        </div>
         </section>
+
         <aside className={styles.rightColumn}>
-          {children[2]} {/* Botones de acción u otros componentes */}
+          {children[3]} {/* PurchaseOptions */}
         </aside>
       </main>
     </div>
