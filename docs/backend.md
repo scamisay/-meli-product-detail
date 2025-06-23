@@ -11,13 +11,13 @@ This document describes the backend implementation that powers the product detai
 * 🧰 **Pydantic**: Defines request and response schemas with type validation and serialization.
 * 🧪 **Pytest**: Testing framework ensuring unit and integration test coverage.
 * 🔥 **Uvicorn**: ASGI server used for development and production.
-* 🔄 **GitHub Actions**: Runs tests and coverage reports on every commit.
+* 📦 **Dockerized Testing**: While GitHub Actions are not configured yet, the backend is containerized, allowing consistent local testing with Docker.
 
 ## 🧱 Architecture
 
 The project follows a layered design pattern, with code organized in:
 
-```plaintext
+```
 app/
 ├── controllers/
 │   ├── article_controller.py
@@ -55,14 +55,16 @@ graph TD
 
 ## 🔍 Endpoints
 
-```plaintext
-GET /                         → Root check
-GET /item-posts/              → Paginated list of item posts
-GET /item-posts/{id}          → Full detail (merged with article & seller)
-GET /articles/{id}            → Article detail
-GET /articles/{id}/images     → List image filenames
-GET /articles/{id}/images/{image} → Serve article image
-GET /sellers/{id}             → Seller detail
+Each endpoint is designed to serve specific parts of the product detail page with clear responsibilities and efficient access to the data stored in the filesystem.
+
+```
+GET /                             → Health check; confirms that the API is up and running.
+GET /item-posts/                  → Returns a paginated list of all item posts with basic data (price, condition, stock).
+GET /item-posts/{id}              → Returns a full item post detail, including merged data from article and seller.
+GET /articles/{id}                → Retrieves detailed metadata for a single article (title, brand, attributes, etc.).
+GET /articles/{id}/images         → Lists all image filenames for a specific article, grouped by variant.
+GET /articles/{id}/images/{image} → Serves the binary content of a specific image belonging to an article.
+GET /sellers/{id}                 → Retrieves full metadata for a seller (name, reputation, product count, etc.).
 ```
 
 ## 🔄 Data Flow Sequence
@@ -87,12 +89,24 @@ sequenceDiagram
 
 ## ✅ Test Strategy
 
+### 🐳 Running Tests with Docker
+
+You can run the tests inside the container with:
+
+```bash
+docker build -t meli-backend .
+docker run --rm meli-backend pytest --cov=src tests/
+```
+
+This ensures reproducible test runs without needing to install dependencies locally.
+
 * Located in `tests/`
 
   * `test_item_post_controller.py`
   * `test_article_controller.py`
   * `test_seller_controller.py`
-* Run via:
+
+* Run locally with:
 
 ```bash
 pytest --cov=src tests/
