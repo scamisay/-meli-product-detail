@@ -28,6 +28,7 @@ export default function ProductDetailLayout({ children }) {
 
         <aside className={styles.rightColumn}>
           {children[4]} {/* PurchaseOptions */}
+          {children[5]} {/* AvailablePaymentMethods */}
         </aside>
       </main>
     </div>

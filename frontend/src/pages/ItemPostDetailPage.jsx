@@ -7,6 +7,7 @@ import ItemPostSummary from "../components/ItemPostSummary/ItemPostSummary";
 import PurchaseOptions from "../components/PurchaseOptions/PurchaseOptions";
 import RelatedProductList from "../components/RelatedProduct/RelatedProductList";
 import ArticleDescription from "../components/ArticleDescription/ArticleDescription";
+import AvailablePaymentMethods from "../components/AvailablePaymentMethods/AvailablePaymentMethods";
 import { fetchItemPost } from "../api/itemPostApi";
 import { fetchSeller } from "../api/sellerApi";
 import { fetchArticle } from "../api/articleApi";
@@ -48,6 +49,7 @@ export default function ItemPostDetailPage() {
       <RelatedProductList currentItemId={itemPost.id} />
       <ArticleDescription article={article} />
       <PurchaseOptions itemPost={itemPost} seller={seller} />
+      <AvailablePaymentMethods paymentMethods={itemPost.payment_methods} />
     </ProductDetailLayout>
   );
 }
