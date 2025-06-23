@@ -46,7 +46,6 @@ The documentation is split into the following sections in the `docs/` folder:
 * [`frontend.md`](./docs/frontend.md): React component structure and rendering logic
 * [`backend.md`](./docs/backend.md): Layered architecture, endpoints, and test strategy
 * [`data.md`](./docs/data.md): Entity formats, JSON schema, and relationships
-* [`engineering-decisions.md`](./docs/engineering-decisions.md): Design rationale and challenges
 
 ---
 
