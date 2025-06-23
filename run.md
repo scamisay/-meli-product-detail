@@ -1,68 +1,62 @@
-# run.md
+### 📦 `run.md` – Project Setup Instructions
 
-## Requisitos previos
-
-* Tener instalado [Docker](https://www.docker.com/products/docker-desktop/)
-* Tener instalado [Docker Compose](https://docs.docker.com/compose/)
-
-## Estructura esperada del proyecto
-
-```
-meli-product-detail-main/
-├── backend/
-│   ├── app/
-│   ├── data/
-│   ├── requirements.txt
-│   └── ...
-├── frontend/
-│   ├── src/
-│   └── ...
-├── docker-compose.yml
-├── run.md
-```
-
-## Levantar el entorno
-
-Desde la carpeta raíz del proyecto:
-
-```bash
-docker-compose up --build
-```
-
-Esto hará lo siguiente:
-
-* Construirá y levantará el backend (FastAPI) en `http://localhost:8000`
-* Construirá y levantará el frontend (Vite + React) en `http://localhost:5173`
-
-## Backend
-
-* El backend se monta con acceso a la carpeta `backend/data` como volumen para poder servir contenido desde ella.
-* Si modificás el contenido de `data/`, se refleja directamente.
-
-## Frontend
-
-* El contenedor de frontend utiliza Vite con hot-reload.
-* Asegurate que no haya otro proceso usando el puerto 5173.
+This guide will help you run the **meli-product-detail** project locally using Docker Compose.
 
 ---
 
-## Parar el entorno
+### 🛠️ Prerequisites
 
-```bash
-docker-compose down
+* [Docker](https://www.docker.com/) installed
+* [Docker Compose](https://docs.docker.com/compose/install/) (comes bundled with Docker Desktop)
+
+---
+
+### 🚀 Running the Project
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/your-repo/meli-product-detail.git
+   cd meli-product-detail
+   ```
+
+2. Run the services:
+
+   ```bash
+   docker compose up --build
+   ```
+
+3. Access the applications:
+
+   * **Frontend**: [http://localhost:5173](http://localhost:5173)
+   * **Backend (API)**: [http://localhost:8000](http://localhost:8000)
+
+---
+
+### 💃 Project Structure
+
+```
+.
+├── backend/
+│   ├── app/                # FastAPI backend
+│   └── data/               # JSON data (mounted as volume)
+├── frontend/               # React frontend (Vite)
+├── docker-compose.yml      # Service orchestration
+├── run.md                  # This guide
 ```
 
-## Notas adicionales
+---
 
-* Si querés ver los logs:
+### 🧹 Stopping the Services
+
+To stop the project, run:
 
 ```bash
-docker-compose logs -f
+docker compose down
 ```
 
-* Si querés reconstruir desde cero:
+To rebuild everything from scratch:
 
 ```bash
-docker-compose down -v
-docker-compose build --no-cache
+docker compose up --build --force-recreate
 ```
