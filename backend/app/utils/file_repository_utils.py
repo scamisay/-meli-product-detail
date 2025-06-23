@@ -36,3 +36,20 @@ def resolve_file_path_or_fail(directory_path: str, file_name: str) -> str:
     if not os.path.isfile(path):
         raise FileNotFoundError(f"File not found: {path}")
     return path
+
+def list_json_objects_from_directory(directory_path: str) -> list[dict]:
+    """
+    Load all JSON files from a flat directory and return them as a list of dicts.
+    """
+    if not os.path.exists(directory_path):
+        raise FileNotFoundError(f"Directory not found: {directory_path}")
+    items = []
+    for filename in sorted(os.listdir(directory_path)):
+        if filename.endswith(".json"):
+            path = os.path.join(directory_path, filename)
+            with open(path, "r", encoding="utf-8") as f:
+                try:
+                    items.append(json.load(f))
+                except json.JSONDecodeError:
+                    continue
+    return items
