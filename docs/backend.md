@@ -67,6 +67,40 @@ GET /articles/{id}/images/{image} → Serves the binary content of a specific im
 GET /sellers/{id}                 → Retrieves full metadata for a seller (name, reputation, product count, etc.).
 ```
 
+## 📦 Enumerations
+
+The backend defines strict enumerations to ensure valid values for critical fields in `item_post.json`, avoiding inconsistencies or typos in payment and delivery options.
+
+### PaymentMethodCategory
+
+Defines categories of available payment methods:
+
+* `credit_card`
+* `debit_card`
+* `cash`
+* `account_money`
+* `bank_transfer`
+
+### CreditCardMethod, DebitCardMethod, etc.
+
+Enumerate allowed methods within each category, for example:
+
+* `CreditCardMethod`: `visa`, `mastercard`, `naranja_x`, `amex`, etc.
+* `DebitCardMethod`: `maestro`, `visa_debit`, etc.
+* `CashMethod`: `rapipago`, `pago_facil`
+* `AccountMoneyMethod`: `mercado_pago_balance`
+* `BankTransferMethod`: `debin`
+
+### DeliveryOption
+
+Literal enum that defines valid delivery types:
+
+* `home_delivery:standard`
+* `pickup_point:mail_branch`
+* `seller_store_pickup:direct`
+
+These enums are referenced directly in Pydantic models and validated at runtime to prevent invalid API responses.
+
 ## 🔄 Data Flow Sequence
 
 ```mermaid
