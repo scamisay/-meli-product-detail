@@ -1,3 +1,4 @@
+// src/pages/ItemPostDetailPage.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductDetailLayout from "../components/Layout/ProductDetailLayout";
@@ -5,6 +6,7 @@ import ArticlePhotoGallery from "../components/ArticlePhotoGallery/ArticlePhotoG
 import ItemPostSummary from "../components/ItemPostSummary/ItemPostSummary";
 import PurchaseOptions from "../components/PurchaseOptions/PurchaseOptions";
 import RelatedProductList from "../components/RelatedProduct/RelatedProductList";
+import ArticleDescription from "../components/ArticleDescription/ArticleDescription";
 import { fetchItemPost } from "../api/itemPostApi";
 import { fetchSeller } from "../api/sellerApi";
 
@@ -39,6 +41,7 @@ export default function ItemPostDetailPage() {
       <ArticlePhotoGallery articleId={itemPost.article_id} />
       <ItemPostSummary item={itemPost} />
       <RelatedProductList currentItemId={itemPost.id} />
+      <ArticleDescription articleId={itemPost.article_id} />
       <PurchaseOptions itemPost={itemPost} seller={seller} />
     </ProductDetailLayout>
   );
