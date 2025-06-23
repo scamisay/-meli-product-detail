@@ -23,6 +23,7 @@ graph LR
   B --> E[ItemPostSummary]
   B --> F[RelatedProductList]
   C --> G[ItemPostPurchaseBox]
+  C --> H[AvailablePaymentMethods]
 ```
 
 ### Components
@@ -31,6 +32,7 @@ graph LR
 * `ItemPostSummary`: Shows article title, rating, and key info.
 * `ItemPostPurchaseBox`: Manages stock, quantity selection, delivery options, and seller reputation.
 * `RelatedProductList`: Fetches related `itemPosts` excluding current.
+* `AvailablePaymentMethods`: Displays payment method icons, only if corresponding image exists in `public/icons/payment/`. Icons currently supported include: `master-card.svg`, `mercado-pago.svg`, `visa-debit.svg`, and `visa.svg`.
 
 ### Design Decisions
 
